@@ -23,6 +23,7 @@ return new class extends Migration
     {
         Schema::table('albums', function (Blueprint $table) {
             //
+            $table->string('album_name', 255)->change(); // MODIFICA DEL CAMPO NAME
         });
     }
 };

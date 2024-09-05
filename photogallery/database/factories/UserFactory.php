@@ -23,11 +23,20 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
-        return [
+       /*  return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
+            'remember_token' => Str::random(10),
+        ]; */
+
+        // USO DI LARAVEL FAKER - (fzaninotto faker - cerca su google)
+        return [
+            'name' => $this->faker->name(),
+            'email' => $this->faker->unique()->safeEmail(),
+            'email_verified_at' => now(),
+            'password' => bcrypt('password'), // oppure Hash::make('password')
             'remember_token' => Str::random(10),
         ];
     }

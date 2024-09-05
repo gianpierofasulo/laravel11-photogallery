@@ -15,9 +15,18 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
+    /*     User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
-        ]);
+        ]); */
+
+        // RICHIAMO IL SEEDER PER LA TAB USER
+        $this->call(UserSeeder::class);
+
+        // ED ANCHE TUTTI  QUELLLI CHE VOGLIO METTERE QUI DENTRO
+        // in questo modo partiranno tutti iniseme
+        $this->call(AlbumSeeder::class);
+        $this->call(PhotoSeeder::class);
+
     }
 }

@@ -7,7 +7,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str; // per generare dati fake
+use Illuminate\Support\Str; // per generare stringhe fake
+use App\Models\User;
 
 class UserSeeder extends Seeder
 {
@@ -17,8 +18,8 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         //
-
-        for ($i=0; $i <= 30; $i++) {
+        // Metodo per creare a mano per eventuali insert particolari
+      /*   for ($i=0; $i <= 30; $i++) {
             $name = STR::random(10);
             DB::insert('insert into users (name, email, password, created_at, email_verified_at) values (?, ?, ?, ?, ?)',
             [ $name,
@@ -27,7 +28,9 @@ class UserSeeder extends Seeder
               Carbon::now(),
               Carbon::now()  ]);
 
-        }
+        } */
+
+        User::factory(30)->create();
 
 
     }
